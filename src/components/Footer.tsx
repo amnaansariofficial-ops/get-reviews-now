@@ -1,4 +1,5 @@
 import { Star, Mail, Phone, MapPin } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export const Footer = () => {
   return (
@@ -27,24 +28,29 @@ export const Footer = () => {
             <h3 className="font-semibold mb-4">Services</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
-                  Review Generation
-                </a>
+                <Link to="/services" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  All Services
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/services/seo" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                  SEO Services
+                </Link>
+              </li>
+              <li>
+                <Link to="/services/local-seo" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   Local SEO
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/services/ppc" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   PPC Campaigns
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/services/white-label" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   White Label
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -54,24 +60,24 @@ export const Footer = () => {
             <h3 className="font-semibold mb-4">Company</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/about" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   About Us
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/case-studies" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   Case Studies
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/blog" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   Blog
-                </a>
+                </Link>
               </li>
               <li>
-                <a href="#" className="text-sm text-muted-foreground hover:text-primary transition-colors">
+                <Link to="/contact" className="text-sm text-muted-foreground hover:text-primary transition-colors">
                   Contact
-                </a>
+                </Link>
               </li>
             </ul>
           </div>

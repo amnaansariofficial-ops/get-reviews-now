@@ -6,6 +6,7 @@ import { TestimonialsSection } from "@/components/TestimonialsSection";
 import { CTASection } from "@/components/CTASection";
 import { Footer } from "@/components/Footer";
 import { Helmet } from "react-helmet";
+import { Link } from "react-router-dom";
 
 const Index = () => {
   return (
