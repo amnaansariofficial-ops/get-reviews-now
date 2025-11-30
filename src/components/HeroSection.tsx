@@ -29,15 +29,15 @@ export const HeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-screen pt-24 pb-16 overflow-hidden bg-background">
+    <section className="relative min-h-screen pt-24 pb-16 overflow-hidden bg-white">
       {/* Background Image */}
       <div 
-        className="absolute inset-0 bg-cover bg-center opacity-30"
+        className="absolute inset-0 bg-cover bg-center opacity-20"
         style={{ backgroundImage: `url(${heroBg})` }}
       />
       
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-r from-background/95 via-background/80 to-background/60" />
+      {/* Light Overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-white/90 via-white/85 to-white/70" />
 
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -51,38 +51,31 @@ export const HeroSection = () => {
               
               <div className="space-y-4 mb-8">
                 <div className="flex items-center gap-3">
-                  <div className="w-6 h-6 rounded-full border-2 border-foreground flex items-center justify-center flex-shrink-0">
-                    <Check className="w-4 h-4 text-foreground" strokeWidth={3} />
+                  <div className="w-7 h-7 rounded-full border-2 border-black flex items-center justify-center flex-shrink-0">
+                    <Check className="w-4 h-4 text-black" strokeWidth={2.5} />
                   </div>
-                  <p className="text-lg text-foreground">Get Positive Reviews</p>
+                  <p className="text-lg text-black">Get Positive Reviews</p>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-6 h-6 rounded-full border-2 border-foreground flex items-center justify-center flex-shrink-0">
-                    <Check className="w-4 h-4 text-foreground" strokeWidth={3} />
+                  <div className="w-7 h-7 rounded-full border-2 border-black flex items-center justify-center flex-shrink-0">
+                    <Check className="w-4 h-4 text-black" strokeWidth={2.5} />
                   </div>
-                  <p className="text-lg text-foreground">Boost Local Ranking</p>
+                  <p className="text-lg text-black">Boost Local Ranking</p>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-6 h-6 rounded-full border-2 border-foreground flex items-center justify-center flex-shrink-0">
-                    <Check className="w-4 h-4 text-foreground" strokeWidth={3} />
+                  <div className="w-7 h-7 rounded-full border-2 border-black flex items-center justify-center flex-shrink-0">
+                    <Check className="w-4 h-4 text-black" strokeWidth={2.5} />
                   </div>
-                  <p className="text-lg text-foreground">Targeted Ad Campaigns</p>
+                  <p className="text-lg text-black">Targeted Ad Campaigns</p>
                 </div>
                 <div className="flex items-center gap-3">
-                  <div className="w-6 h-6 rounded-full border-2 border-foreground flex items-center justify-center flex-shrink-0">
-                    <Check className="w-4 h-4 text-foreground" strokeWidth={3} />
+                  <div className="w-7 h-7 rounded-full border-2 border-black flex items-center justify-center flex-shrink-0">
+                    <Check className="w-4 h-4 text-black" strokeWidth={2.5} />
                   </div>
-                  <p className="text-lg text-foreground">Scale Beyond Limits</p>
+                  <p className="text-lg text-black">Scale Beyond Limits</p>
                 </div>
               </div>
             </div>
-
-            <Button 
-              size="lg" 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-bold text-lg px-10 py-7 rounded-md shadow-lg hover:shadow-xl transition-all"
-            >
-              Start Your Free Trial
-            </Button>
           </div>
 
           {/* Right Content - Floating Review Cards */}
