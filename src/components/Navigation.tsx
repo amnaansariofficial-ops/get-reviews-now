@@ -35,7 +35,7 @@ export const Navigation = () => {
                 Buy Reviews
                 <ChevronDown className="w-4 h-4" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-card border-border z-50">
+              <DropdownMenuContent className="bg-white dark:bg-gray-800 border shadow-lg z-[100]">
                 <DropdownMenuItem asChild>
                   <Link to="/buy-reviews/google">Google Reviews</Link>
                 </DropdownMenuItem>
@@ -53,7 +53,7 @@ export const Navigation = () => {
                 Services
                 <ChevronDown className="w-4 h-4" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-card border-border z-50">
+              <DropdownMenuContent className="bg-white dark:bg-gray-800 border shadow-lg z-[100]">
                 <DropdownMenuItem asChild>
                   <Link to="/services">All Services</Link>
                 </DropdownMenuItem>
@@ -74,7 +74,7 @@ export const Navigation = () => {
                 Resources
                 <ChevronDown className="w-4 h-4" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-card border-border z-50">
+              <DropdownMenuContent className="bg-white dark:bg-gray-800 border shadow-lg z-[100]">
                 <DropdownMenuItem asChild>
                   <Link to="/about">About</Link>
                 </DropdownMenuItem>
