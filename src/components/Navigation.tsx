@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Star, Menu, Phone, ShoppingCart, User, ChevronDown } from "lucide-react";
+import { Star, Menu, Phone, ShoppingCart, User, ChevronDown, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -9,8 +9,32 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
+const platforms = [
+  { name: "Google", icon: "G", color: "bg-white border-2 border-primary text-red-500" },
+  { name: "Google Local Guide", icon: "📍", color: "bg-white border-2 border-primary" },
+  { name: "TrustPilot", icon: "★", color: "bg-emerald-600 text-white" },
+  { name: "Google GPS", icon: "📍", color: "bg-white border-2 border-primary" },
+  { name: "Glassdoor", icon: "🚪", color: "bg-emerald-500 text-white" },
+  { name: "Facebook", icon: "f", color: "bg-blue-600 text-white" },
+  { name: "Google LSA", icon: "✓", color: "bg-white border-2 border-emerald-500 text-emerald-500" },
+  { name: "Zillow", icon: "Z", color: "bg-blue-500 text-white" },
+  { name: "Thumbtack", icon: "T", color: "bg-white border-2 border-primary text-primary" },
+  { name: "Houzz", icon: "h", color: "bg-emerald-400 text-white" },
+  { name: "Home Advisor", icon: "🏠", color: "bg-orange-400 text-white" },
+  { name: "Google Playstore", icon: "▶", color: "bg-white border-2 border-primary" },
+  { name: "Indeed", icon: "i", color: "bg-white border-2 border-primary text-blue-700" },
+  { name: "TrustPilot Verified", icon: "★", color: "bg-emerald-600 text-white" },
+  { name: "Home Star", icon: "⭐", color: "bg-white border-2 border-primary" },
+  { name: "Booking", icon: "B", color: "bg-blue-700 text-white" },
+  { name: "BBB", icon: "BBB", color: "bg-blue-800 text-white text-xs" },
+  { name: "Tripadvisor", icon: "🦉", color: "bg-emerald-500 text-white" },
+  { name: "WebMD", icon: "W", color: "bg-white border-2 border-primary text-blue-600" },
+  { name: "Product", icon: "P", color: "bg-orange-500 text-white" },
+];
+
 export const Navigation = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [buyReviewsOpen, setBuyReviewsOpen] = useState(false);
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
@@ -30,23 +54,46 @@ export const Navigation = () => {
 
           {/* Desktop Menu */}
           <div className="hidden md:flex items-center gap-8">
-            <DropdownMenu>
-              <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium hover:text-primary transition-colors">
+            {/* Buy Reviews Mega Menu */}
+            <div 
+              className="relative"
+              onMouseEnter={() => setBuyReviewsOpen(true)}
+              onMouseLeave={() => setBuyReviewsOpen(false)}
+            >
+              <button className="flex items-center gap-1 text-sm font-medium hover:text-primary transition-colors text-primary">
                 Buy Reviews
-                <ChevronDown className="w-4 h-4" />
-              </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-white dark:bg-gray-800 border shadow-lg z-[100]">
-                <DropdownMenuItem asChild>
-                  <Link to="/buy-reviews/google">Google Reviews</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/buy-reviews/facebook">Facebook Reviews</Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/buy-reviews/yelp">Yelp Reviews</Link>
-                </DropdownMenuItem>
-              </DropdownMenuContent>
-            </DropdownMenu>
+                <ChevronDown className={`w-4 h-4 transition-transform ${buyReviewsOpen ? 'rotate-180' : ''}`} />
+              </button>
+              
+              {buyReviewsOpen && (
+                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[900px]">
+                  <div className="bg-white border border-gray-200 shadow-xl rounded-lg p-6 z-[100]">
+                    <div className="grid grid-cols-5 gap-4 mb-6">
+                      {platforms.map((platform, index) => (
+                        <Link
+                          key={index}
+                          to={`/buy-reviews/${platform.name.toLowerCase().replace(/\s+/g, '-')}`}
+                          className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors group"
+                        >
+                          <div className={`w-10 h-10 rounded-lg flex items-center justify-center font-bold ${platform.color}`}>
+                            {platform.icon}
+                          </div>
+                          <span className="text-sm font-medium text-gray-800 group-hover:text-primary transition-colors">
+                            {platform.name}
+                          </span>
+                        </Link>
+                      ))}
+                    </div>
+                    <div className="border-t border-gray-200 pt-4">
+                      <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6">
+                        Discover 100+ Other Platforms
+                        <ArrowRight className="w-4 h-4 ml-2" />
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
 
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center gap-1 text-sm font-medium hover:text-primary transition-colors">
