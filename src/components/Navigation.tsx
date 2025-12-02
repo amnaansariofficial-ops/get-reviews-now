@@ -60,13 +60,17 @@ export const Navigation = () => {
               onMouseEnter={() => setBuyReviewsOpen(true)}
               onMouseLeave={() => setBuyReviewsOpen(false)}
             >
-              <button className="flex items-center gap-1 text-sm font-medium hover:text-primary transition-colors text-primary">
+              <button className="flex items-center gap-1 text-sm font-medium hover:text-primary transition-colors text-primary py-4">
                 Buy Reviews
                 <ChevronDown className={`w-4 h-4 transition-transform ${buyReviewsOpen ? 'rotate-180' : ''}`} />
               </button>
               
               {buyReviewsOpen && (
-                <div className="fixed left-0 right-0 top-16 z-[100]">
+                <div 
+                  className="fixed left-0 right-0 top-16 z-[100]"
+                  onMouseEnter={() => setBuyReviewsOpen(true)}
+                  onMouseLeave={() => setBuyReviewsOpen(false)}
+                >
                   <div className="container mx-auto px-4">
                     <div className="bg-white border border-gray-200 shadow-xl rounded-b-lg p-8">
                       <div className="grid grid-cols-5 gap-x-8 gap-y-4 mb-6">
@@ -75,6 +79,7 @@ export const Navigation = () => {
                             key={index}
                             to={`/buy-reviews/${platform.name.toLowerCase().replace(/\s+/g, '-')}`}
                             className="flex items-center gap-3 p-3 rounded-lg border border-transparent hover:border-primary/20 hover:bg-gray-50 transition-colors group"
+                            onClick={() => setBuyReviewsOpen(false)}
                           >
                             <div className={`w-11 h-11 rounded-lg flex items-center justify-center font-bold text-base flex-shrink-0 ${platform.color}`}>
                               {platform.icon}
