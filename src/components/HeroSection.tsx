@@ -26,11 +26,11 @@ export const HeroSection = () => {
   ];
 
   return (
-    <section className="relative min-h-screen pt-32 pb-20 overflow-hidden bg-[#F5F5F5]">
+    <section className="relative pt-24 pb-16 overflow-hidden bg-[#F5F5F5]">
       <div className="container mx-auto px-6 relative z-10">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           {/* Left Content */}
-          <div className="space-y-8 pt-8">
+          <div className="space-y-6">
             <div>
               <h1 className="text-6xl md:text-7xl font-black leading-[1.1] mb-8">
                 Get More <br />
