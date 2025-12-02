@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Star, Menu, Phone, ShoppingCart, User, ChevronDown, ArrowRight } from "lucide-react";
+import { Star, Menu, Phone, ShoppingCart, User, ChevronDown, ArrowRight, MapPin, Check, Home, Play } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -10,26 +10,26 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 const platforms = [
-  { name: "Google", icon: "G", color: "bg-white border-2 border-primary text-red-500" },
-  { name: "Google Local Guide", icon: "📍", color: "bg-white border-2 border-primary" },
-  { name: "TrustPilot", icon: "★", color: "bg-emerald-600 text-white" },
-  { name: "Google GPS", icon: "📍", color: "bg-white border-2 border-primary" },
-  { name: "Glassdoor", icon: "🚪", color: "bg-emerald-500 text-white" },
-  { name: "Facebook", icon: "f", color: "bg-blue-600 text-white" },
-  { name: "Google LSA", icon: "✓", color: "bg-white border-2 border-emerald-500 text-emerald-500" },
-  { name: "Zillow", icon: "Z", color: "bg-blue-500 text-white" },
-  { name: "Thumbtack", icon: "T", color: "bg-white border-2 border-primary text-primary" },
-  { name: "Houzz", icon: "h", color: "bg-emerald-400 text-white" },
-  { name: "Home Advisor", icon: "🏠", color: "bg-orange-400 text-white" },
-  { name: "Google Playstore", icon: "▶", color: "bg-white border-2 border-primary" },
-  { name: "Indeed", icon: "i", color: "bg-white border-2 border-primary text-blue-700" },
-  { name: "TrustPilot Verified", icon: "★", color: "bg-emerald-600 text-white" },
-  { name: "Home Star", icon: "⭐", color: "bg-white border-2 border-primary" },
-  { name: "Booking", icon: "B", color: "bg-blue-700 text-white" },
-  { name: "BBB", icon: "BBB", color: "bg-blue-800 text-white text-xs" },
-  { name: "Tripadvisor", icon: "🦉", color: "bg-emerald-500 text-white" },
-  { name: "WebMD", icon: "W", color: "bg-white border-2 border-primary text-blue-600" },
-  { name: "Product", icon: "P", color: "bg-orange-500 text-white" },
+  { name: "Google", icon: "G", iconStyle: "text-[#4285F4] font-bold text-xl", bg: "bg-white border-2 border-primary/60" },
+  { name: "Google Local Guide", icon: "📍", iconStyle: "text-lg", bg: "bg-white border-2 border-primary/60" },
+  { name: "TrustPilot", icon: "★", iconStyle: "text-white text-lg", bg: "bg-[#00B67A]" },
+  { name: "Google GPS", icon: "📍", iconStyle: "text-lg", bg: "bg-white border-2 border-primary/60" },
+  { name: "Glassdoor", icon: "🚪", iconStyle: "text-white text-lg", bg: "bg-[#0CAA41]" },
+  { name: "Facebook", icon: "f", iconStyle: "text-white font-bold text-xl", bg: "bg-[#1877F2]" },
+  { name: "Google LSA", icon: "✓", iconStyle: "text-[#00A550] font-bold text-xl", bg: "bg-white border-2 border-primary/60" },
+  { name: "Zillow", icon: "Z", iconStyle: "text-white font-bold text-xl", bg: "bg-[#006AFF]" },
+  { name: "Thumbtack", icon: "T", iconStyle: "text-[#009FD9] font-bold text-xl", bg: "bg-white border-2 border-primary/60" },
+  { name: "Houzz", icon: "h", iconStyle: "text-white font-bold text-xl", bg: "bg-[#4DBC8C]" },
+  { name: "Home Advisor", icon: "🏠", iconStyle: "text-lg", bg: "bg-[#F89939]" },
+  { name: "Google Playstore", icon: "▶", iconStyle: "text-lg", bg: "bg-white border-2 border-primary/60" },
+  { name: "Indeed", icon: "indeed", iconStyle: "text-[#2164F3] font-semibold text-[10px]", bg: "bg-white border-2 border-primary/60" },
+  { name: "TrustPilot Verified", icon: "★", iconStyle: "text-white text-lg", bg: "bg-[#00B67A]" },
+  { name: "Home Star", icon: "⭐", iconStyle: "text-lg", bg: "bg-white border-2 border-primary/60" },
+  { name: "Booking", icon: "B.", iconStyle: "text-white font-bold text-lg", bg: "bg-[#003580]" },
+  { name: "BBB", icon: "BBB", iconStyle: "text-white font-bold text-[10px]", bg: "bg-[#005A8B]" },
+  { name: "Tripadvisor", icon: "🦉", iconStyle: "text-white text-lg", bg: "bg-[#34E0A1]" },
+  { name: "WebMD", icon: "WebMD", iconStyle: "text-[#3E7CBB] font-semibold text-[8px]", bg: "bg-white border-2 border-primary/60" },
+  { name: "Product", icon: "P", iconStyle: "text-white font-bold text-xl", bg: "bg-[#DA552F]" },
 ];
 
 export const Navigation = () => {
@@ -72,26 +72,26 @@ export const Navigation = () => {
                   onMouseLeave={() => setBuyReviewsOpen(false)}
                 >
                   <div className="container mx-auto px-4">
-                    <div className="bg-white border border-gray-200 shadow-xl rounded-b-lg p-8">
-                      <div className="grid grid-cols-5 gap-x-8 gap-y-4 mb-6">
+                    <div className="bg-[#FDFBF7] border border-gray-100 shadow-xl rounded-b-lg p-8">
+                      <div className="grid grid-cols-5 gap-x-6 gap-y-5 mb-8">
                         {platforms.map((platform, index) => (
                           <Link
                             key={index}
                             to={`/buy-reviews/${platform.name.toLowerCase().replace(/\s+/g, '-')}`}
-                            className="flex items-center gap-3 p-3 rounded-lg border border-transparent hover:border-primary/20 hover:bg-gray-50 transition-colors group"
+                            className="flex items-center gap-3 p-2 rounded-lg hover:bg-white hover:shadow-sm transition-all group"
                             onClick={() => setBuyReviewsOpen(false)}
                           >
-                            <div className={`w-11 h-11 rounded-lg flex items-center justify-center font-bold text-base flex-shrink-0 ${platform.color}`}>
-                              {platform.icon}
+                            <div className={`w-11 h-11 rounded-lg flex items-center justify-center flex-shrink-0 ${platform.bg}`}>
+                              <span className={platform.iconStyle}>{platform.icon}</span>
                             </div>
-                            <span className="text-sm font-medium text-gray-800 group-hover:text-primary transition-colors leading-tight">
+                            <span className="text-sm font-medium text-gray-700 group-hover:text-gray-900 transition-colors leading-tight">
                               {platform.name}
                             </span>
                           </Link>
                         ))}
                       </div>
-                      <div className="border-t border-gray-200 pt-5">
-                        <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 py-3 h-auto">
+                      <div className="border-t border-gray-200 pt-6">
+                        <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 py-3 h-auto rounded-lg">
                           Discover 100+ Other Platforms
                           <ArrowRight className="w-4 h-4 ml-2" />
                         </Button>
