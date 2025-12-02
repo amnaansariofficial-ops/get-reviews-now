@@ -1,5 +1,5 @@
 import { Button } from "@/components/ui/button";
-import { Star, Menu, Phone, ShoppingCart, User, ChevronDown, ArrowRight, MapPin, Check, Home, Play } from "lucide-react";
+import { Star, Menu, Phone, ShoppingCart, User, ChevronDown, ArrowRight } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import {
@@ -8,28 +8,13 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
+import { PlatformIcon } from "./PlatformIcon";
 
-const platforms = [
-  { name: "Google", icon: "G", iconStyle: "text-[#4285F4] font-bold text-xl", bg: "bg-white border-2 border-primary/60" },
-  { name: "Google Local Guide", icon: "📍", iconStyle: "text-lg", bg: "bg-white border-2 border-primary/60" },
-  { name: "TrustPilot", icon: "★", iconStyle: "text-white text-lg", bg: "bg-[#00B67A]" },
-  { name: "Google GPS", icon: "📍", iconStyle: "text-lg", bg: "bg-white border-2 border-primary/60" },
-  { name: "Glassdoor", icon: "🚪", iconStyle: "text-white text-lg", bg: "bg-[#0CAA41]" },
-  { name: "Facebook", icon: "f", iconStyle: "text-white font-bold text-xl", bg: "bg-[#1877F2]" },
-  { name: "Google LSA", icon: "✓", iconStyle: "text-[#00A550] font-bold text-xl", bg: "bg-white border-2 border-primary/60" },
-  { name: "Zillow", icon: "Z", iconStyle: "text-white font-bold text-xl", bg: "bg-[#006AFF]" },
-  { name: "Thumbtack", icon: "T", iconStyle: "text-[#009FD9] font-bold text-xl", bg: "bg-white border-2 border-primary/60" },
-  { name: "Houzz", icon: "h", iconStyle: "text-white font-bold text-xl", bg: "bg-[#4DBC8C]" },
-  { name: "Home Advisor", icon: "🏠", iconStyle: "text-lg", bg: "bg-[#F89939]" },
-  { name: "Google Playstore", icon: "▶", iconStyle: "text-lg", bg: "bg-white border-2 border-primary/60" },
-  { name: "Indeed", icon: "indeed", iconStyle: "text-[#2164F3] font-semibold text-[10px]", bg: "bg-white border-2 border-primary/60" },
-  { name: "TrustPilot Verified", icon: "★", iconStyle: "text-white text-lg", bg: "bg-[#00B67A]" },
-  { name: "Home Star", icon: "⭐", iconStyle: "text-lg", bg: "bg-white border-2 border-primary/60" },
-  { name: "Booking", icon: "B.", iconStyle: "text-white font-bold text-lg", bg: "bg-[#003580]" },
-  { name: "BBB", icon: "BBB", iconStyle: "text-white font-bold text-[10px]", bg: "bg-[#005A8B]" },
-  { name: "Tripadvisor", icon: "🦉", iconStyle: "text-white text-lg", bg: "bg-[#34E0A1]" },
-  { name: "WebMD", icon: "WebMD", iconStyle: "text-[#3E7CBB] font-semibold text-[8px]", bg: "bg-white border-2 border-primary/60" },
-  { name: "Product", icon: "P", iconStyle: "text-white font-bold text-xl", bg: "bg-[#DA552F]" },
+const platformNames = [
+  "Google", "Google Local Guide", "TrustPilot", "Google GPS", "Glassdoor",
+  "Facebook", "Google LSA", "Zillow", "Thumbtack", "Houzz",
+  "Home Advisor", "Google Playstore", "Indeed", "TrustPilot Verified", "Home Star",
+  "Booking", "BBB", "Tripadvisor", "WebMD", "Product"
 ];
 
 export const Navigation = () => {
@@ -74,18 +59,16 @@ export const Navigation = () => {
                   <div className="container mx-auto px-4">
                     <div className="bg-[#FDFBF7] border border-gray-100 shadow-xl rounded-b-lg p-8">
                       <div className="grid grid-cols-5 gap-x-6 gap-y-5 mb-8">
-                        {platforms.map((platform, index) => (
+                        {platformNames.map((platform, index) => (
                           <Link
                             key={index}
-                            to={`/buy-reviews/${platform.name.toLowerCase().replace(/\s+/g, '-')}`}
+                            to={`/buy-reviews/${platform.toLowerCase().replace(/\s+/g, '-')}`}
                             className="flex items-center gap-3 p-2 rounded-lg hover:bg-white hover:shadow-sm transition-all group"
                             onClick={() => setBuyReviewsOpen(false)}
                           >
-                            <div className={`w-11 h-11 rounded-lg flex items-center justify-center flex-shrink-0 ${platform.bg}`}>
-                              <span className={platform.iconStyle}>{platform.icon}</span>
-                            </div>
+                            <PlatformIcon platform={platform} />
                             <span className="text-sm font-medium text-gray-700 group-hover:text-gray-900 transition-colors leading-tight">
-                              {platform.name}
+                              {platform}
                             </span>
                           </Link>
                         ))}
