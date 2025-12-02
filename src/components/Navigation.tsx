@@ -66,29 +66,31 @@ export const Navigation = () => {
               </button>
               
               {buyReviewsOpen && (
-                <div className="absolute top-full left-1/2 -translate-x-1/2 pt-2 w-[900px]">
-                  <div className="bg-white border border-gray-200 shadow-xl rounded-lg p-6 z-[100]">
-                    <div className="grid grid-cols-5 gap-4 mb-6">
-                      {platforms.map((platform, index) => (
-                        <Link
-                          key={index}
-                          to={`/buy-reviews/${platform.name.toLowerCase().replace(/\s+/g, '-')}`}
-                          className="flex items-center gap-3 p-2 rounded-lg hover:bg-gray-50 transition-colors group"
-                        >
-                          <div className={`w-10 h-10 rounded-lg flex items-center justify-center font-bold ${platform.color}`}>
-                            {platform.icon}
-                          </div>
-                          <span className="text-sm font-medium text-gray-800 group-hover:text-primary transition-colors">
-                            {platform.name}
-                          </span>
-                        </Link>
-                      ))}
-                    </div>
-                    <div className="border-t border-gray-200 pt-4">
-                      <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6">
-                        Discover 100+ Other Platforms
-                        <ArrowRight className="w-4 h-4 ml-2" />
-                      </Button>
+                <div className="fixed left-0 right-0 top-16 z-[100]">
+                  <div className="container mx-auto px-4">
+                    <div className="bg-white border border-gray-200 shadow-xl rounded-b-lg p-8">
+                      <div className="grid grid-cols-5 gap-x-8 gap-y-4 mb-6">
+                        {platforms.map((platform, index) => (
+                          <Link
+                            key={index}
+                            to={`/buy-reviews/${platform.name.toLowerCase().replace(/\s+/g, '-')}`}
+                            className="flex items-center gap-3 p-3 rounded-lg border border-transparent hover:border-primary/20 hover:bg-gray-50 transition-colors group"
+                          >
+                            <div className={`w-11 h-11 rounded-lg flex items-center justify-center font-bold text-base flex-shrink-0 ${platform.color}`}>
+                              {platform.icon}
+                            </div>
+                            <span className="text-sm font-medium text-gray-800 group-hover:text-primary transition-colors leading-tight">
+                              {platform.name}
+                            </span>
+                          </Link>
+                        ))}
+                      </div>
+                      <div className="border-t border-gray-200 pt-5">
+                        <Button className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 py-3 h-auto">
+                          Discover 100+ Other Platforms
+                          <ArrowRight className="w-4 h-4 ml-2" />
+                        </Button>
+                      </div>
                     </div>
                   </div>
                 </div>
