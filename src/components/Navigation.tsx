@@ -90,18 +90,27 @@ export const Navigation = () => {
                 Services
                 <ChevronDown className="w-4 h-4" />
               </DropdownMenuTrigger>
-              <DropdownMenuContent className="bg-white dark:bg-gray-800 border shadow-lg z-[100]">
-                <DropdownMenuItem asChild>
+              <DropdownMenuContent className="bg-white border border-gray-200 shadow-lg z-[100] min-w-[180px] p-1">
+                <DropdownMenuItem asChild className="px-4 py-2.5 text-gray-700 hover:bg-gray-50 cursor-pointer">
                   <Link to="/services">All Services</Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/services/seo">SEO Services</Link>
+                <DropdownMenuItem asChild className="px-4 py-2.5 text-gray-700 hover:bg-gray-50 cursor-pointer">
+                  <Link to="/seo-services">SEO Services</Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/services/local-seo">Local SEO</Link>
+                <DropdownMenuItem asChild className="px-4 py-2.5 text-gray-700 hover:bg-gray-50 cursor-pointer">
+                  <Link to="/google-ads">Google Ads</Link>
                 </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/services/ppc">PPC Management</Link>
+                <DropdownMenuItem asChild className="px-4 py-2.5 text-gray-700 hover:bg-gray-50 cursor-pointer">
+                  <Link to="/meta-ads">Meta Ads</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild className="px-4 py-2.5 text-gray-700 hover:bg-gray-50 cursor-pointer">
+                  <Link to="/lead-generation">Lead Generation</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild className="px-4 py-2.5 text-gray-700 hover:bg-gray-50 cursor-pointer">
+                  <Link to="/google-reviews">Google Reviews</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild className="px-4 py-2.5 text-gray-700 hover:bg-gray-50 cursor-pointer">
+                  <Link to="/video-editing">Video Editing</Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
